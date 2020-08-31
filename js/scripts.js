@@ -30,7 +30,7 @@ const card = Vue.component('card', {
 		}
 	},
 	template: `<div class="card">
-				  <div :class="{'card-main': true, 'card-main-selected': cardSelected }" v-on:click="cardSelected=!cardSelected; onceLeft=false" 
+				  <div :class="{'card-main': true, 'no-select': true, 'card-main-selected': cardSelected }" v-on:click="cardSelected=!cardSelected; onceLeft=false" 
 				  v-on:mouseover="cardHover=true" v-on:mouseleave="cardHover=false; onceLeft=true" :disabled="!options.inStock">
 				      <p :class="{'common-text': true, 'p-highlighted': cardHover && cardSelected && onceLeft}">{{headerPhrase()}}</p>
 				      <h1>Нямушка</h1>
@@ -98,7 +98,7 @@ const card = Vue.component('card', {
 				return this.options.description;
 			}
 			else {
-				return `Чего сидишь? Порадуй котэ, <a class="dotted" v-on:click="cardSelected=true">купи.</a>`;
+				return `Чего сидишь? Порадуй котэ, <a class="dotted no-select" v-on:click="cardSelected=true">купи.</a>`;
 			}
 		}
 	},
