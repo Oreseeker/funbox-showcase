@@ -33,7 +33,7 @@ const card = Vue.component('card', {
 				  <div class="card-main no-select" 
 				  :class="cardMainClasses" 
 				  v-on:click="cardSelected=!cardSelected; onceLeft=false"
-				  v-on:mouseover="cardHover=true" v-on:mouseleave="cardHover=false; onceLeft=true" :disabled="!options.inStock">
+				  v-on:mouseover="cardHover=true" v-on:mouseleave="cardHover=false; onceLeft=true">
 				      <p class="common-text" :class="commonTextClasses">{{headerPhrase()}}</p>
 				      <h1>Нямушка</h1>
 				      <h2>с {{options.withTaste}}</h2>
@@ -61,6 +61,7 @@ const card = Vue.component('card', {
 			cardHover: false,
 			cardSelected: false,
 			onceLeft: false,
+			cardDisabled: !this.options.inStock,
 			cardCommentClasses: {'card-comment': true, 'y-highlighted': !this.options.inStock},
 		}
 	},
@@ -103,10 +104,12 @@ const card = Vue.component('card', {
 	computed: {
 		cardMainClasses() {
 			return {
-				'card-main-selected': this.cardSelected, 
-				'card-main-hover': this.cardHover, 
-				'card-main-hover-selected': this.cardSelected && this.cardHover,  
-				'card-main-default': !this.cardSelected && !this.cardHover
+				'card-main-selected': this.cardSelected && !this.cardDisabled, 
+				'card-main-hover': this.cardHover && !this.cardDisabled, 
+				'card-main-hover-selected': this.cardSelected && this.cardHover && !this.cardDisabled,  
+				'card-main-default': !this.cardSelected && !this.cardHover && !this.cardDisabled,
+				'card-main-disabled': this.cardDisabled,
+				'text-disabled': this.cardDisabled,
 			};
 		},
 		commonTextClasses() {
@@ -114,10 +117,11 @@ const card = Vue.component('card', {
 		},
 		weightClasses() {
 			return {
-				'weight-selected': this.cardSelected, 
-				'weight-default': !this.cardSelected && !this.cardHover,
-				'weight-default-hover': this.cardHover, 
-				'weight-selected-hover': this.cardHover && this.cardSelected && this.onceLeft
+				'weight-selected': this.cardSelected && !this.cardDisabled, 
+				'weight-default': !this.cardSelected && !this.cardHover  && !this.cardDisabled,
+				'weight-default-hover': this.cardHover && !this.cardDisabled, 
+				'weight-selected-hover': this.cardHover && this.cardSelected && this.onceLeft && !this.cardDisabled,
+				'weight-disabled': this.cardDisabled,
 				};
 		}
 	},

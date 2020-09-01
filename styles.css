@@ -97,6 +97,14 @@ h1.intro-header {
 	background-image: url('images/cat_selected_hover.png');
 }
 
+.card-main-disabled {
+	background-image: url(images/cat_disabled.png);
+}
+
+.text-disabled > * {
+	color: #d4d4d4!important;
+}
+
 .card > * {
 	font-family: 'Trebuchet MS';
 	color: #666666;
@@ -180,6 +188,7 @@ a.dotted {
 
 .weight-disabled {
 	background-color: #b3b3b3;
+	color: white!important;
 }
 
 .weight-value {
