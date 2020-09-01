@@ -45,13 +45,13 @@ const card = Vue.component('card', {
 					      <div class="weight-units">кг</div>
 				      </div>
 				  </div>
-				  <p :class="cardCommentClasses" v-if="!options.inStock">
+				  <p class="card-comment" :class="commentClasses" v-if="cardDisabled">
 				  	Печалька, с {{options.withTaste}} закончился
 				  </p>
-				  <p :class="cardCommentClasses" v-else-if="cardSelected">
+				  <p class="card-comment" :class="commentClasses" v-else-if="cardSelected">
 				  	{{options.description}}
 				  </p>
-				  <p :class="cardCommentClasses" v-else="!options.inStock">
+				  <p class="card-comment" :class="commentClasses" v-else="!options.inStock">
 				  	Чего сидишь? Порадуй котэ, <a class="dotted no-select" v-on:click="cardSelected=true">купи.</a>
 				  </p>
 			   </div>
@@ -62,7 +62,6 @@ const card = Vue.component('card', {
 			cardSelected: false,
 			onceLeft: false,
 			cardDisabled: !this.options.inStock,
-			cardCommentClasses: {'card-comment': true, 'y-highlighted': !this.options.inStock},
 		}
 	},
 	methods: {
@@ -123,6 +122,9 @@ const card = Vue.component('card', {
 				'weight-selected-hover': this.cardHover && this.cardSelected && this.onceLeft && !this.cardDisabled,
 				'weight-disabled': this.cardDisabled,
 				};
+		},
+		commentClasses() {
+			return {'y-highlighted': this.cardDisabled};
 		}
 	},
 	mounted() {
