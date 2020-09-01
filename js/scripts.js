@@ -31,20 +31,16 @@ const card = Vue.component('card', {
 	},
 	template: `<div class="card">
 				  <div class="card-main no-select" 
-				  :class="{'card-main-selected': this.cardSelected, 'card-main-hover': this.cardHover, 
-				  'card-main-hover-selected': this.cardSelected && this.cardHover,  
-				  'card-main-default': !this.cardSelected && !this.cardHover}" 
+				  :class="cardMainClasses" 
 				  v-on:click="cardSelected=!cardSelected; onceLeft=false"
 				  v-on:mouseover="cardHover=true" v-on:mouseleave="cardHover=false; onceLeft=true" :disabled="!options.inStock">
-				      <p :class="{'common-text': true, 'p-highlighted': cardHover && cardSelected && onceLeft}">{{headerPhrase()}}</p>
+				      <p class="common-text" :class="commonTextClasses">{{headerPhrase()}}</p>
 				      <h1>Нямушка</h1>
 				      <h2>с {{options.withTaste}}</h2>
 				      <p><b>{{options.portions}}</b> {{portionPhrase()}}</p>
 				      <p v-if="options.numberOfMice">
 				      <b v-if="options.numberOfMice != 1">{{options.numberOfMice}}</b> {{micePhrase()}} в подарок</p>
-				      <div :class="{'weight': true, 'weight-selected': cardSelected, 
-				      'weight-default': !cardSelected && !cardHover, 'weight-default-hover': cardHover, 
-				      'weight-selected-hover': cardHover && cardSelected && onceLeft}">
+				      <div class="weight" :class="weightClasses">
 					      <div class="weight-value">{{options.weight}}</div>
 					      <div class="weight-units">кг</div>
 				      </div>
@@ -103,6 +99,27 @@ const card = Vue.component('card', {
 				return "мышей";
 			}
 		},
+	},
+	computed: {
+		cardMainClasses() {
+			return {
+				'card-main-selected': this.cardSelected, 
+				'card-main-hover': this.cardHover, 
+				'card-main-hover-selected': this.cardSelected && this.cardHover,  
+				'card-main-default': !this.cardSelected && !this.cardHover
+			};
+		},
+		commonTextClasses() {
+			return {'common-text': true, 'p-highlighted': this.cardHover && this.cardSelected && this.onceLeft};
+		},
+		weightClasses() {
+			return {
+				'weight-selected': this.cardSelected, 
+				'weight-default': !this.cardSelected && !this.cardHover,
+				'weight-default-hover': this.cardHover, 
+				'weight-selected-hover': this.cardHover && this.cardSelected && this.onceLeft
+				};
+		}
 	},
 	mounted() {
 		/* --- preloading images (for better user @click experience) --- */

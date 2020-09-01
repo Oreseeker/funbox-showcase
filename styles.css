@@ -178,6 +178,10 @@ a.dotted {
 	background-color: #e62e7a;
 }
 
+.weight-disabled {
+	background-color: #b3b3b3;
+}
+
 .weight-value {
 	font-size: 2.625rem; /* 42px*/
 	margin-top: 10px;
