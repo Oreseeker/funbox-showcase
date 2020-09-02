@@ -57,12 +57,12 @@ h1.intro-header {
 	opacity: 50%;
 	position: absolute;
 	z-index: -2;
-	height: 100%;
+	height: max-content;
 }
 
 .card {
+	/*margin: 0 3.125% 2.03125% 3.125%;*/
 	width: 320px;
-	margin: 0 3.125% 2.03125% 3.125%;
 }
 
 .card-main {
@@ -70,7 +70,6 @@ h1.intro-header {
 	width: 100%; /*320px*/
 	height: 480px;
 	background-color: transparent;
-	
 	box-sizing: border-box;
 	padding: 6.25% 18.75% 0 14.0625%; /*20px 60px 0 45px*/
 	background-position: left 0 bottom 0; /*-24px -90px*/
@@ -154,6 +153,7 @@ h1.intro-header {
 .common-text {
 	font-size: 1rem;
 }
+
 a.dotted {
 	color: #1698d9;
 	text-decoration: underline dashed;
@@ -161,13 +161,13 @@ a.dotted {
 
 .weight {
 	position: absolute;
-	height: 80px;
-	width: 80px;
-	right: 15px;
-	bottom: 15px;
 	border-radius: 50%;
 	color: white;
 	text-align: center;
+	width: 25%;
+	height: 16.66666%;
+	right: 4.6875%;
+	bottom: 3.125%;
 }
 
 .weight-default {
@@ -193,8 +193,7 @@ a.dotted {
 
 .weight-value {
 	font-size: 2.625rem; /* 42px*/
-	margin-top: 10px;
-	line-height: 42px; 
+	margin-top: 12.5%;
 }
 
 .weight-units {
@@ -205,8 +204,6 @@ a.dotted {
 .wrapper {
 	width: 100%;
 	height: max-content;
-	display: table-cell;
-	vertical-align: middle;
 	margin: auto;
 }
 
@@ -238,3 +235,30 @@ a.dotted {
     user-select: none;
 }
 
+@media screen and (max-width: 400px) {
+	html {
+		font-size: 3.7vw;
+	}
+	.card {
+		width: 70%;
+		margin-bottom: 20px;
+	}
+	.card-main {
+		height: 110vw;
+		width: 100%;
+		background-size: 100% 100%;
+	}
+
+	.weight-value {
+		line-height: 100%;
+	}
+}
+
+@media screen and (min-width: 400px) {
+	.card {
+		margin: 0 3.125% 2.03125% 3.125%;
+	}
+	.weight-value {
+		line-height: 42px;
+	}
+}
