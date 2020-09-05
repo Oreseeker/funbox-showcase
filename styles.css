@@ -226,7 +226,8 @@ a.dotted {
 	height: 0;
 }
 
-.noSelect {
+.no-select {
+	-webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -242,6 +243,7 @@ a.dotted {
 	.card {
 		width: 70%;
 		margin-bottom: 20px;
+		height: 400px;
 	}
 	.card-main {
 		height: 110vw;
@@ -262,3 +264,4 @@ a.dotted {
 		line-height: 42px;
 	}
 }
+
