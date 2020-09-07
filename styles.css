@@ -51,7 +51,6 @@ h1.intro-header {
 }
 
 .card {
-	/*margin: 0 3.125% 2.03125% 3.125%;*/
 	width: 320px;
 }
 
@@ -226,14 +225,14 @@ a.dotted {
     user-select: none;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 360px) {
 	html {
 		font-size: 3.7vw;
 	}
 	.card {
 		width: 70%;
 		margin-bottom: 20px;
-		height: 420px;
+		height: 120vw;
 	}
 	.card-main {
 		height: 110vw;
@@ -246,7 +245,7 @@ a.dotted {
 	}
 }
 
-@media screen and (min-width: 400px) {
+@media screen and (min-width: 360px) {
 	.card {
 		margin: 0 3.125% 2.03125% 3.125%;
 	}
