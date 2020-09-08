@@ -1,6 +1,6 @@
 This project contains product cards  of cat food implemented in Vue.js, HTML5, CSS3. Each card has a hover and a selected states.  
 While selected hover effects are a little bit different. In the selected state hover effect is applied after initial selection of the product card.
-Multiple cards can be selected at a time by clicking either on the card itself or the label "купи" under the card.
+Multiple cards can be selected at a time by clicking either on the card itself or the label "купи" under the card. Due to Russian case noun system card text differs for different values of displayed parameters. Images used are preloaded during mounting of the application to the DOM element (to avoid their shimmer associated with their load).
 
 Card information can be changed. Each card is a Vue component which accepts data object as a prop. Structure of this data object is the following:
 
@@ -32,4 +32,4 @@ The structure of the project:
   * **scripts,js** - contains everything except Vue.
 * **images** - contains images used in the project.
 * **fonts** - contains additional fonts.
-* **prototype** - contains templates for the site in .psd, .sketch and .otf formats.
+* **prototype** - contains templates for the site in .psd and .sketch formats.

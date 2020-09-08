@@ -3,6 +3,10 @@ const card = Vue.component('card', {
 		options: {
 			required: true,
 			type: Object,
+			name: {
+				required: true,
+				type: String,
+			},
 			portions: {
 				required: true,
 				type: Number
@@ -35,7 +39,7 @@ const card = Vue.component('card', {
 				  v-on:click="cardSelected=!cardSelected; onceLeft=false"
 				  v-on:mouseover="cardHover=true" v-on:mouseleave="cardHover=false; onceLeft=true">
 				      <p class="common-text" :class="commonTextClasses">{{headerPhrase()}}</p>
-				      <h1>Нямушка</h1>
+				      <h1>{{options.name}}</h1>
 				      <h2>с {{options.withTaste}}</h2>
 				      <p><b>{{options.portions}}</b> {{portionPhrase()}}</p>
 				      <p v-if="options.numberOfMice">
@@ -145,6 +149,7 @@ const app = new Vue({
 	el: '#app',
 	data: {
 		fuaGra: {
+			name: 'Нямушка',
 			portions: 1,
 			withTaste: "фуа-гра",
 			numberOfMice: 1,
@@ -153,6 +158,7 @@ const app = new Vue({
 			description: "Печень утки разварная с артишоками.",
 		},
 		fish: {
+			name: 'Нямушка',
 			portions: 10,
 			withTaste: "рыбой",
 			numberOfMice: 2,
@@ -161,6 +167,7 @@ const app = new Vue({
 			description: "Головы щучьи с чесноком да свежайшая сёмгушка.",
 		},
 		chicken: {
+			name: 'Нямушка',
 			portions: 100,
 			withTaste: "курой",
 			numberOfMice: 5,
