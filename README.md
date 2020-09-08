@@ -15,6 +15,8 @@ productCard: {
             description: ...,
         }
 
+Objects for shown cards are presented in declaration of Vue application (line 150 and further in js/scripts.js). One can edit product information there.
+
 Here:
 * **name** - is a product name ('Нямушка' by default). String.
 * **portions** - a number of portions in each packaging. Number.
