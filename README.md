@@ -28,8 +28,8 @@ The structure of the project:
 * **index.html** - this is where everything is displayed.
 * **styles.css** - all styles are written here.
 * **js** - the folder contains js files for the project. 
-  **vue.js** - Vue 2 library
-  **scripts,js** - contains everything except Vue.
+  * **vue.js** - Vue 2 library
+  * **scripts,js** - contains everything except Vue.
 * **images** - contains images used in the project.
 * **fonts** - contains additional fonts.
 * **prototype** - contains templates for the site in .psd, .sketch and .otf formats.
