@@ -154,10 +154,10 @@ export default {
     let hoverImage = new Image();
     let selectedImage = new Image();
     let selectedHoverImage = new Image();
-    defaultImage.src = "images/cat_default.png";
-    selectedImage.src = "images/cat_selected.png";
-    selectedHoverImage.src = "images/cat_selected_hover.png";
-    hoverImage.src = "images/cat_default_hover.png";
+    defaultImage.src = "../assets/images/cat_default.png";
+    selectedImage.src = "../assets/images/cat_selected.png";
+    selectedHoverImage.src = "../assets/images/cat_selected_hover.png";
+    hoverImage.src = "../assets/images/cat_default_hover.png";
     /* --- end preloading images ---*/
   }
 };
