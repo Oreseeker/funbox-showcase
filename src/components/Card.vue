@@ -147,18 +147,6 @@ export default {
     commentClasses() {
       return { "y-highlighted": this.cardDisabled };
     }
-  },
-  mounted() {
-    /* --- preloading images (for better user @click experience) --- */
-    let defaultImage = new Image();
-    let hoverImage = new Image();
-    let selectedImage = new Image();
-    let selectedHoverImage = new Image();
-    defaultImage.src = "../assets/images/cat_default.png";
-    selectedImage.src = "../assets/images/cat_selected.png";
-    selectedHoverImage.src = "../assets/images/cat_selected_hover.png";
-    hoverImage.src = "../assets/images/cat_default_hover.png";
-    /* --- end preloading images ---*/
   }
 };
 </script>
